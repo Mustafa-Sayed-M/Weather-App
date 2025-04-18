@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Description -->
+    <meta name="description" content="Weather App">
+    <!-- Author -->
+    <meta name="author" content="Mustafa Sayed | BA7R">
+    <!-- Title -->
+    <title>Weather App</title>
+    <!-- Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        media="print" onload="this.onload=null;this.removeAttribute('media');" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </noscript>
+    <!-- Swiper Css CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print"
+        onload="this.onload=null;this.removeAttribute('media');" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    </noscript>
+    <!-- Toastify Css CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+        media="print" onload="this.onload=null;this.removeAttribute('media');">
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    </noscript>
+    <!-- Index Css -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <!-- Date Info -->
+            <div class="date-info" id="dateInfo">Date Info</div>
+            <form class="form-search" id="formSearch">
+                <div class="input-group">
+                    <label for="countrySearchInput">Search</label>
+                    <input type="text" name="country" id="countrySearchInput" required
+                        placeholder="Find your country..." autocomplete="off">
+                </div>
+                <!-- Submit Btn -->
+                <button class="submit-btn" id="btnSubmit">Find</button>
+                <!-- Open Days Side Btn -->
+                <button type="button" class="days-side-toggler" onclick="sideDaysToggler()">
+                    <span class="sr-only">Side Toggler</span>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </form>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Side Info -->
+            <aside class="side-info">
+                <h1 class="weather-degree" id="weatherDegree">Loading...</h1>
+                <h2 class="weather-text" id="weatherText">Storm With Rain</h2>
+                <!-- More Info -->
+                <div class="more-info">
+                    <!-- Wind Speed -->
+                    <div class="wind-speed">
+                        <div class="head">
+                            <i class="fa-solid fa-wind fa-fw"></i>
+                            <span>Wind</span>
+                        </div>
+                        <h3 id="windSpeed">2.4m/h</h3>
+                    </div>
+                    <!-- Humidity -->
+                    <div class="humidity">
+                        <div class="head">
+                            <i class="fa-solid fa-fire-flame-simple fa-fw"></i>
+                            <span>Humidity</span>
+                        </div>
+                        <h3 id="humidity">70%</h3>
+                    </div>
+                </div>
+            </aside>
+            <!-- Weather Icon -->
+            <div class="weather-icon">
+                <img src="" alt="" id="weatherIcon">
+            </div>
+            <!-- Side Days -->
+            <aside class="side-days" id="sideDays">
+                <ul class="days-list" id="daysList"></ul>
+            </aside>
+        </div>
+    </main>
+    <!-- Slider of Hours Day -->
+    <section class="slider-hours-day" id="sliderHorursDay">
+        <div class="container">
+            <div class="slider-container">
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper" id="swiperWrapper"></div>
+                </div>
+                <!-- Slider Pagination ( Custom Slider Pagination ) -->
+                <div class="slider-pagination">
+                    <button title="Previous" class="slider-prev-btn">
+                        <i class="fa-solid fa-angle-left fa-fw"></i>
+                    </button>
+                    <button title="Previous" class="slider-next-btn">
+                        <i class="fa-solid fa-angle-right fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Created With Love - Mustafa Sayed</p>
+        </div>
+    </footer>
+    <!-- Index Js -->
+    <script src="js/index.js"></script>
+    <!--Toastify Js CDN  -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Swiper Js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialization to Swiper -->
+    <script>
+        // Swiper
+        const swiper = new Swiper('.swiper', {
+            navigation: {
+                nextEl: '.slider-next-btn',
+                prevEl: '.slider-prev-btn',
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 2
+                },
+                400: {
+                    slidesPerView: 3
+                },
+                575: {
+                    slidesPerView: 4
+                },
+                640: {
+                    slidesPerView: 5
+                },
+                768: {
+                    slidesPerView: 6
+                },
+                991: {
+                    slidesPerView: 7
+                },
+                1024: {
+                    slidesPerView: 8
+                },
+                1200: {
+                    slidesPerView: 9
+                },
+                1440: {
+                    slidesPerView: 10
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>
