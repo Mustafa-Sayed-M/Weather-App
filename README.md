@@ -18,6 +18,8 @@ A modern and clean weather application built with pure HTML, CSS, and JavaScript
     <img src='./preview.png' alt='Preview Image' />
 </a>
 
+`click on image to go live demo`
+
 ## 🛠️ Technologies Used
 
 - HTML5 & CSS3
